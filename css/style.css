@@ -1,0 +1,103 @@
+#console {
+            width: 50%;
+            font-family: 'Courier New', monospace;
+            border: solid 2px #000;
+            background: #000;
+            color: #FFF;
+            height: 350px;
+            overflow: auto;
+            padding: 10px;
+            float: right;
+        }
+
+* {
+      margin: 0;
+      padding: 0;
+}
+
+.checkboxes{
+      display: inline-block;
+      width: 40%;
+      padding: 10px;
+}
+
+.niceCheck {
+      width: 17px;
+      height: 17px;
+      display: inline-block;
+      cursor: pointer;
+      background: url(../img/checkbox.png);
+      overflow: hidden;
+}
+.niceChecked {
+      background-position: 0 -17px;
+}
+.niceCheck input {
+      margin-left: -100px; 
+}
+.niceCheckDisabled {
+      background-image: url(../img/checkbox-disabled.png);
+}
+
+.cssCheck {
+      position: absolute;
+      clip: rect(0, 0, 0, 0);
+}
+.cssCheck__label {
+      cursor: pointer;
+}
+.cssCheck__label:after {
+      content: " ";
+      display: inline-block;
+      width: 17px;
+      height: 17px;
+      background: url(../img/checkbox.png);
+      position: relative;
+      top: 3px;
+      margin-left: 15px;
+}
+.cssCheck:checked + label:after {
+background-position: 0 -17px;
+}
+
+a:focus {
+      outline: none;
+}
+.topmenu ul, .topmenu ul li{
+      margin: 0;  
+      padding: 0; 
+      display: inline;
+      margin-right:2px;
+}
+.topmenu ul li {
+      float: left;
+      position:relative;      
+      width:140px;
+}
+.topmenu ul li a{
+      display: block;
+      padding:10px 10px 10px 30px;
+      
+    margin:1px 0px;
+      color: #0000FF;
+      text-decoration: none;  
+      border:1px solid #999;
+    white-space: nowrap;
+}
+.topmenu ul li a:HOVER{
+      color: #0000CC;
+}
+
+.topmenu ul li ul {
+    display: none;
+    position:absolute;
+    top:36px;
+}
+
+.topmenu ul li ul li {
+    display:block;    
+    border-top:0px;
+}
+.active {
+    background-color:#eee;
+}

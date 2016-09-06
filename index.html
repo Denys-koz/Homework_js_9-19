@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dz 9-10</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/jcarousel.transitions.css">
+
+	<link type="text/css" rel="stylesheet" href="css/jquery.selectBox.css"/>
+	
+	<script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/modernizr.js"></script>
+	<script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+	<script type="text/javascript" src="js/jcarousel.transitions.js"></script>
+
+	<script type="text/javascript" src="js/jquery.selectBox.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="topmenu">
+	    <ul>
+	        <li><a href="#" title="Меню 1">Меню 1</a>
+	            <ul>
+	               <li><a href="#" title="Элемент 1.1">Элемент 1.1</a></li>
+	               <li><a href="#" title="Элемент 1.2">Элемент 1.2</a></li>
+	               <li><a href="#" title="Элемент 1.3">Элемент 1.3</a></li>
+	            </ul>
+	        </li>
+	        <li><a href="#" title="Меню 2">Меню 2</a>
+	            <ul>
+	               <li><a href="#" title="Элемент 2.1">Элемент 2.1</a></li>
+	               <li><a href="#" title="Элемент 2.2">Элемент 2.2</a></li>
+	               <li><a href="#" title="Элемент 2.3">Элемент 2.3</a></li>
+	            </ul>
+	        </li>
+	        <li><a href="#" title="Меню 3">Меню 3</a>
+	            <ul>
+	               <li><a href="#" title="Элемент 3.1">Элемент 3.1</a></li>
+	               <li><a href="#" title="Элемент 3.2">Элемент 3.2</a></li>
+	               <li><a href="#" title="Элемент 3.3">Элемент 3.3</a></li>
+	            </ul>
+	        </li>
+	    </ul>       
+	</div>
+	
+	<div class="jcarousel-wrapper">
+		<div class="jcarousel">
+			<ul>
+				<li style="background: url('img/img1.jpg');"></li>
+				<li style="background: url('img/img2.jpg');"></li>
+				<li style="background: url('img/img3.jpg');"></li>
+				<li style="background: url('img/img4.jpg');"></li>
+				<li style="background: url('img/img5.jpg');"></li>
+				<li style="background: url('img/img6.jpg');"></li>
+			</ul>
+		</div>
+
+		<p class="photo-credits">
+			Photos by
+			<a href="http://www.mw-fotografie.de">Marc Wiegelmann</a>
+		</p>
+
+		<a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+		<a href="#" class="jcarousel-control-next">&rsaquo;</a>
+	</div>
+	<form style="background: #FFF; padding: 20px; border: solid 2px #DDD;">
+		 <p>
+        <label for="standard-dropdown">Standard Dropdown</label><br/>
+        <select id="standard-dropdown" name="standard-dropdown" class="custom-class1 custom-class2" style="width: 200px;">
+            <option value="1" class="test-class-1">Item 1</option>
+            <option value="2" class="test-class-2" selected="selected">Item 2</option>
+            <option value="3" class="test-class-3">Item 3 has a really long label that will not interfere with the control's
+                width
+            </option>
+            <option value="4" class="test-class-4">Item 4</option>
+            <option value="5" disabled="disabled">Item 5 (disabled)</option>
+            <option value="6">Item 6</option>
+            <option value="7">Item 7</option>
+            <option value="8">Item 8</option>
+            <option value="9">Item 9</option>
+            <option value="10">Item 10</option>
+            <option value="11">Item 11</option>
+            <option value="12">Item 12</option>
+            <option value="13">Item 13</option>
+            <option value="14">Item 14</option>
+            <option value="15">Item 15</option>
+            <option value="16">Item 16</option>
+            <option value="17">Item 17</option>
+            <option value="18">Item 18</option>
+            <option value="19">Item 19</option>
+            <option value="20">Item 20</option>
+        </select>
+    </p>
+		<p>
+	        <label for="multi-select-control">Multi-select Control</label><br/>
+	        <select id="multi-select-control" name="multi-select-control" multiple="multiple">
+	            <option value="1" selected="selected">Item 1</option>
+	            <option value="2">Item 2</option>
+	            <option value="3">Item 3</option>
+	            <option value="4">Item 4</option>
+	            <option value="5" disabled="disabled">Item 5 (disabled)</option>
+	        </select>
+	    </p>
+
+	</form>
+</div>
+<div>
+	<div class="checkboxes">
+		<form action="#">
+			<div>
+				<h3>JQuery checkbox</h3>
+				<label for="ch1">Чекбокс 1</label>
+				<input type="checkbox" class="niceCheck" id="ch1" value="on" tabindex="1">
+			</div>
+			<div>
+				<label for="ch2">Чекбокс 2</label>
+				<input type="checkbox" class="niceCheck" checked="checked" id="ch2" tabindex="2" value="2">
+			</div>
+			<div>
+				<label for="ch3">Чекбокс 3</label>
+				<input type="checkbox" class="niceCheck" id="ch3" checked="checked" disabled="disabled">
+			</div>
+		</form>
+	</div>
+	<div class="checkboxes">
+		<form action="#">
+			<h3>CSS checkbox</h3>
+			<div>
+				<input type="checkbox" id="check1" class="cssCheck">
+				<label for="check1" class="cssCheck__label">Чекбокс 1</label>
+			</div>
+			<div>
+				<input type="checkbox" id="check2" class="cssCheck">
+				<label for="check2" class="cssCheck__label">Чекбокс 2</label>
+			</div>
+			<div>
+				<input type="checkbox" id="check3" class="cssCheck">
+				<label for="check3" class="cssCheck__label">Чекбокс 3</label>
+			</div>
+		</form>
+	</div>
+
+</div>
+</body>
+</html>
