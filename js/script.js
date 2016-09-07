@@ -97,16 +97,13 @@ $(document).ready(function () {
                         mobile: true
                     })
                     .focus(function () {
-                        $('#console').append('Focus on ' + $(this).attr('name') + '<br />');
-                        $('#console')[0].scrollTop = $('#console')[0].scrollHeight;
+                        
                     })
                     .blur(function () {
-                        $('#console').append('Blur on ' + $(this).attr('name') + '<br />');
-                        $('#console')[0].scrollTop = $('#console')[0].scrollHeight;
+                       
                     })
                     .change(function () {
-                        $('#console').append('Change on ' + $(this).attr('name') + ': ' + $(this).val() + '<br />');
-                        $('#console')[0].scrollTop = $('#console')[0].scrollHeight;
+                       
                     });
 
         });
@@ -259,16 +256,33 @@ catch(e)
     return true;
 }
 
+//++++++++++++++++++++++++++++++++++ Menu  +++++++++++++++++++++++++++++++++++++++
+
 $(document).ready(function(){
-    $('.topmenu ul li').hover(
-        function() {
-            $(this).addClass("active");
-            $(this).find('ul').stop(true, true); // останавливаем всю текущую анимацию
-            $(this).find('ul').slideDown();
-        },
-        function() {
-            $(this).removeClass("active");        
-            $(this).find('ul').slideUp('fast');
-        }
-    );
+    $('.menu_item').hover( function() {
+        $(this).animate({backgroundColor:'#eee',}, 800);
+        $(this).find('ul:first').stop(true, true);
+        $(this).find('ul:first').slideDown();
+    },
+    function() {     
+        $(this).find('ul').slideUp('fast');
+        $(this).animate({backgroundColor:'white',}, 800);
+    });
+
+
+    $('.submenu_item').hover( function() {
+        $(this).animate({backgroundColor:'#eee',}, 800);
+        $(this).find('ul:first').stop(true, true);
+        $(this).find('ul:first').slideDown();
+     },
+    function() {
+        $(this).animate({backgroundColor:'white',}, 800);
+        $(this).find('ul:first').slideUp('fast'); 
+    });
+    $('.submenu li:has(ul)').find('a:first').append('&raquo;');
+    
+
 });
+
+
+

@@ -1,18 +1,12 @@
-#console {
-            width: 50%;
-            font-family: 'Courier New', monospace;
-            border: solid 2px #000;
-            background: #000;
-            color: #FFF;
-            height: 350px;
-            overflow: auto;
-            padding: 10px;
-            float: right;
-        }
 
 * {
       margin: 0;
       padding: 0;
+      list-style: none;
+}
+
+.container{
+      padding: 5px 10px 20px;
 }
 
 .checkboxes{
@@ -60,44 +54,62 @@
 background-position: 0 -17px;
 }
 
+.topmenu{
+      margin: 10px 0 50px 20%;
+      background-color: #fff;
+      display: block;
+}
+
 a:focus {
       outline: none;
 }
-.topmenu ul, .topmenu ul li{
+.topmenu>ul, .menu_item{
       margin: 0;  
       padding: 0; 
       display: inline;
       margin-right:2px;
 }
-.topmenu ul li {
+.menu_item {
       float: left;
       position:relative;      
-      width:140px;
+      width:150px;
+      background-color: #fff;
 }
-.topmenu ul li a{
+.menu_item a{
       display: block;
       padding:10px 10px 10px 30px;
       
-    margin:1px 0px;
+      margin:1px 0px;
       color: #0000FF;
       text-decoration: none;  
       border:1px solid #999;
-    white-space: nowrap;
 }
-.topmenu ul li a:HOVER{
+.menu_item a:HOVER{
       color: #0000CC;
 }
 
-.topmenu ul li ul {
+.submenu {
     display: none;
     position:absolute;
-    top:36px;
+    top:42px;
+    z-index: 2;
 }
 
-.topmenu ul li ul li {
+.submenu_item {
     display:block;    
     border-top:0px;
+    width: 150px;
+    position: relative;
+    background-color: #fff;
 }
 .active {
-    background-color:#eee;
+    /*background-color:#eee;*/
+}
+
+.submenu_item ul {
+    display: none;
+    position:absolute;
+    top:0px;
+    left:151px;
+    width: 150px;
 }
