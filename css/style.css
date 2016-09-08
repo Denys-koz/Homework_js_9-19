@@ -22,12 +22,13 @@
       cursor: pointer;
       background: url(../img/checkbox.png);
       overflow: hidden;
+      margin-left: 10px;
 }
 .niceChecked {
       background-position: 0 -17px;
 }
 .niceCheck input {
-      margin-left: -100px; 
+      margin-left: -100px;
 }
 .niceCheckDisabled {
       background-image: url(../img/checkbox-disabled.png);

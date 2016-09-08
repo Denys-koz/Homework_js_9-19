@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>xiper.net - демо стилизированных checkbox</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href="http://www.xiper.net/examples/css/examples.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+<!--
+form {
+	margin: 50px;
+	background: #99CCFF;
+	padding: 10px;
+}
+.niceCheck {
+	width: 17px;
+	height: 17px;
+	display: inline-block;
+	cursor: pointer;
+	background: url(img/checkbox.png);
+	overflow: hidden;
+}
+.niceChecked {
+	background-position: 0 -17px;
+}
+.niceCheck input {
+	margin-left: -100px;
+}
+div {
+	margin-bottom: 10px;
+}
+.niceCheckDisabled {
+	background-image: url(img/checkbox-disabled.png);
+}
+		
+-->
+</style>
+<script   src="https://code.jquery.com/jquery-1.12.4.min.js"   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="   crossorigin="anonymous"></script>
+<script type="text/javascript" src="http://www.xiper.net/js/jquery.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+
+jQuery(".niceCheck").each(
+/* при загрузке страницы меняем обычные на стильные checkbox */
+function() {
+     
+     changeCheckStart(jQuery(this));
+     
+});
+
+                                        });
+
+
+function changeCheck(el)
+/* 
+	функция смены вида и значения чекбокса при клике на контейнер чекбокса (тот, котрый отвечает за новый вид)
+	el - span контейнер для обычного чекбокса
+	input - чекбокс
+*/
+{
+
+	var el = el,
+		input = el.find("input").eq(0);
+		  
+	if(el.attr("class").indexOf("niceCheckDisabled")==-1)
+	{	
+   		if(!input.attr("checked")) {
+			el.addClass("niceChecked");
+			input.attr("checked", true);
+		} else {
+			el.removeClass("niceChecked");
+			input.attr("checked", false).focus();
+		}
+	}
+	
+    return true;
+}
+
+function changeVisualCheck(input)
+{
+/*
+	меняем вид чекбокса при смене значения
+*/
+var wrapInput = input.parent();
+	if(!input.attr("checked")) {
+		wrapInput.removeClass("niceChecked");
+	}
+	else
+	{
+		wrapInput.addClass("niceChecked");
+	}
+}
+
+function changeCheckStart(el)
+/* 
+	новый чекбокс выглядит так <span class="niceCheck"><input type="checkbox" name="[name check]" id="[id check]" [checked="checked"] /></span>
+	новый чекбокс получает теже name, id и другие атрибуты что и были у обычного
+*/
+{
+
+try
+{
+var el = el,
+	// checkName = el.attr("name"),
+	checkId = el.attr("id"),
+	checkChecked = el.attr("checked"),
+	checkDisabled = el.attr("disabled"),
+	checkValue = el.attr("value");
+	checkTab = el.attr("tabindex");
+	if(checkChecked)
+		el.after("<span class='niceCheck niceChecked'>"+
+			"<input type='checkbox'"+
+			// "name='"+checkName+"'"+
+			"id='"+checkId+"'"+
+			"checked='"+checkChecked+"'"+
+			"value='"+checkValue+"'"+
+			"tabindex='"+checkTab+"' /></span>");
+	else
+		el.after("<span class='niceCheck'>"+
+			"<input type='checkbox'"+
+			// "name='"+checkName+"'"+
+			"id='"+checkId+"'"+
+			"value='"+checkValue+"'"+
+			"tabindex='"+checkTab+"' /></span>");
+	
+	/* если checkbox disabled - добавляем соотвсмтвующи класс для нужного вида и добавляем атрибут disabled для вложенного chekcbox */		
+	if(checkDisabled)
+	{
+		el.next().addClass("niceCheckDisabled");
+		el.next().find("input").eq(0).attr("disabled","disabled");
+	}
+	
+	/* цепляем обработчики стилизированным checkbox */		
+	el.next().bind("mousedown", function(e) { changeCheck(jQuery(this)) });
+	el.next().find("input").eq(0).bind("change", function(e) { changeVisualCheck(jQuery(this)) });
+	el.attr('id', 'remove');
+	el.remove();
+
+}
+catch(e)
+{
+	// если ошибка, ничего не делаем
+}
+
+    return true;
+}
+
+</script>
+		
+		
+</head>
+<body>
+<div class="main">
+	<form action="#">
+	<div><label for="ch1">label 1</label><input type="checkbox" class="niceCheck" id="ch1" tabindex="1" /> </div>
+	<div><label for="ch2">label 2</label><input type="checkbox" class="niceCheck" checked="checked" id="ch2" tabindex="2" value="2" /></div>
+	<div><label for="ch3">label 3</label><input type="checkbox" class="niceCheck" id="ch3" checked="checked" disabled="disabled" /></div>
+	</form>
+	
+</div>
+<div class="validateLinks">Проверить на соотвествие стандартам <a href="http://validator.w3.org/check?uri=referer">XHTML</a> и <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-5053168-4");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

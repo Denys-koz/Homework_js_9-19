@@ -109,6 +109,7 @@ $(document).ready(function () {
         });
 
 //-------------------------------------Checkbox-------------------------------//
+//------------------------------костыль для jQuery.browser.msie
 (function() {
  
 var matched, browser;
@@ -148,7 +149,9 @@ if ( browser.chrome ) {
 }
  
 jQuery.browser = browser;
-})();//------------------------------костыль для jQuery.browser.msie
+})();
+
+//-------------------------------------Checkbox---------------
 
 jQuery(document).ready(function(){
 
@@ -166,7 +169,7 @@ function changeCheck(el)
     el - span контейнер для обычного чекбокса
     input - чекбокс
 */
-{
+{ console.log(el);
 
     var el = el,
         input = el.find("input").eq(0);
@@ -241,6 +244,7 @@ var el = el,
     
     /* цепляем обработчики стилизированным checkbox */      
     el.next().bind("mousedown", function(e) { changeCheck(jQuery(this)) });
+    el.prev().bind("click", function(e) { changeCheck(jQuery(this).parent().find('.niceCheck')) });
     el.next().find("input").eq(0).bind("change", function(e) { changeVisualCheck(jQuery(this)) });
     if(jQuery.browser.msie)
     {
